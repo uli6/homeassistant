@@ -1,0 +1,256 @@
+device_tracker.mosquitto_daniela:
+  entity_picture: http://image.ibb.co/eWCcmn/pp.jpg
+  friendly_name: Daniela
+device_tracker.mosquitto_ulisses:
+  friendly_name: Ulisses
+  entity_picture: https://thumb.ibb.co/cjxQmJ/25358662_10155258900864077_6493738357932793530_o.jpg
+input_boolean.ulisses_status:
+  icon: mdi:map-marker-outline
+input_boolean.daniela_status:
+  icon: mdi:map-marker-outline
+zone.home:
+  latitude: 38.68501
+  longitude: -9.1522
+  radius: 25
+group.calendar:
+  hidden: true
+sensor.event_title:
+  icon: mdi:calendar
+sensor.event_start_time:
+  icon: mdi:clock
+sensor.event_end_time:
+  icon: mdi:clock
+sensor.event_location:
+  icon: mdi:map-marker
+calendar.contactulissesxyz:
+  hidden: true
+calendar.pontesdanielagmailcom:
+  hidden: true
+calendar.family:
+  hidden: true
+sensor.home_to_event:
+  friendly_name: De carro
+  icon: mdi:car-hatchback
+calendar.holidays_in_portugal:
+  hidden: true
+sensor.ulisses_battery:
+  icon: mdi:battery
+input_boolean.tv_timer_boolean:
+  hidden: true
+automation.turn_off_tv_input:
+  hidden: true
+automation.turn_off_tv_timer:
+  hidden: true
+device_tracker.iphonedeaugustolan:
+  hidden: true
+timer.tv_timer:
+  friendly_name: TV Sleep Timer
+sensor.daniela_battery:
+  icon: mdi:battery
+input_boolean.guests_boolean:
+  custom_ui_more_info: On if there are guests at home. It will disable some automatisations
+    based on presence
+  friendly_name: Modo Guest
+  icon: mdi:account-plus
+input_boolean.besttime_boolean:
+  friendly_name: Party time
+switch.sonoff_1:
+  friendly_name: Coffee Machine
+  icon: mdi:coffee
+sensor.home_to_event_walking:
+  friendly_name: A pé
+  icon: mdi:walk
+image_processing.face_detect:
+  friendly_name: Faces Detected
+group.face_recog:
+  friendly_name: Face Recognition
+image_processing.face_identify:
+  friendly_name: Identify
+light.hue_1:
+  friendly_name: Luz de cabeceira
+  icon: mdi:lamp
+light.hue_2:
+  friendly_name: Luz de chão
+  icon: mdi:floor-lamp
+sensor.bedroom_humidity:
+  friendly_name: humidade do Quarto
+sensor.bedroom_temp:
+  friendly_name: Temperatura do Quarto
+sensor.office_temp:
+  friendly_name: Temperatura do Escritório
+sensor.office_humidity:
+  friendly_name: Humidade do Escritório
+sensor.living_room_temp:
+  friendly_name: Temperatura da Sala
+sensor.living_room_humidity:
+  friendly_name: Humidade da Sala
+switch.bedroomtv_switch:
+  friendly_name: TV do quarto
+  icon: mdi:television
+switch.study_switch:
+  friendly_name: Luz de estudo
+  icon: mdi:desk-lamp
+input_boolean.bedroomtv_input:
+  friendly_name: TV_boolean
+light.study_lamp:
+  friendly_name: Luz de estudo
+  icon: mdi:desk-lamp
+light.bedroom:
+  friendly_name: Luzes do Quarto
+light.living_room:
+  friendly_name: Luzes da Sala
+binary_sensor.openclose_4:
+  device_class: opening
+  friendly_name: Porta da Varanda
+  icon: mdi:door
+sensor.balcony_door_status:
+  icon: mdi:door
+sensor.uberx_time:
+  friendly_name: UberX Time
+sensor.dark_sky_apparent_temperature:
+  friendly_name: Apparent Temperature
+sensor.dark_sky_daily_summary:
+  friendly_name: Daily Summary
+sensor.dark_sky_dew_point:
+  friendly_name: Dew Point
+sensor.dark_sky_dew_point_1:
+  friendly_name: Tomorrows Dew Point 1
+sensor.dark_sky_hourly_summary:
+  friendly_name: Hourly Summary
+sensor.dark_sky_humidity:
+  friendly_name: Humidity
+sensor.dark_sky_humidity_1:
+  friendly_name: Tomorrows Humidity
+sensor.dark_sky_icon:
+  friendly_name: Dark Sky Icon
+sensor.dark_sky_icon_1:
+  friendly_name: Tomorrows Dark Sky Icon
+sensor.dark_sky_ozone:
+  friendly_name: Ozone
+sensor.dark_sky_nearest_storm_distance:
+  friendly_name: Nearest Storm Distance
+sensor.dark_sky_ozone_1:
+  friendly_name: Tomorrows Ozone
+sensor.dark_sky_precip:
+  friendly_name: 'Precipitation '
+sensor.dark_sky_precip_1:
+  friendly_name: Tomorrows Precipitation
+sensor.dark_sky_precip_intensity:
+  friendly_name: Precip Intensity
+sensor.dark_sky_precip_intensity_1:
+  friendly_name: Tomorrows Precip Intensity
+sensor.dark_sky_precip_probability:
+  friendly_name: Precip Probability
+sensor.dark_sky_precip_probability_1:
+  friendly_name: Tomorrows Precip Probability
+sensor.dark_sky_pressure:
+  friendly_name: Pressure
+sensor.dark_sky_pressure_1:
+  friendly_name: Tomorrows Pressure
+sensor.dark_sky_summary:
+  friendly_name: Summary
+sensor.dark_sky_temperature:
+  friendly_name: Temperature
+sensor.dark_sky_uv_index:
+  friendly_name: UV Index
+sensor.dark_sky_uv_index_1:
+  friendly_name: Tomorrows UV Index
+sensor.dark_sky_visibility:
+  friendly_name: Visibility
+sensor.dark_sky_visibility_1:
+  friendly_name: Tomorrows Visibility
+sensor.dark_sky_wind_bearing:
+  friendly_name: Wind Bearing
+sensor.dark_sky_wind_bearing_1:
+  friendly_name: Tomorrows Wind Bearing
+sensor.dark_sky_wind_speed:
+  friendly_name: Wind Speed
+sensor.dark_sky_wind_speed_1:
+  friendly_name: Tomorrows Wind Speed
+sensor.bathroom_humidity:
+  friendly_name: Humidade do Banheiro
+sensor.bathroom_pressure:
+  friendly_name: Pressão atimosférica do Banheiro
+sensor.bathroom_temp:
+  friendly_name: Temperatura do Banheiro
+sensor.bedroom_window_status:
+  icon: mdi:window-closed
+input_boolean.start_cast:
+  friendly_name: Criar um clima
+light.bathroom_ceiling_light:
+  friendly_name: Luz do Banheiro
+  icon: mdi:ceiling-light
+binary_sensor.bathroom_motion:
+  friendly_name: Sensor de Movimento 1 do Banheiro
+binary_sensor.presence_18:
+  friendly_name: Sensor de Movimento 2 do Banheiro
+switch.light_3:
+  friendly_name: Luz da Sala
+  icon: mdi:ceiling-light
+switch.light_4:
+  friendly_name: Luz da mesa de jantar
+  icon: mdi:ceiling-light
+light.bedroom_ceiling_light:
+  icon: mdi:ceiling-light
+light.guest_room_ceiling_light:
+  friendly_name: Luz do Escritório
+  icon: mdi:ceiling-light
+sensor.next_ferry:
+  icon: mdi:ferry
+light.bedroom_light:
+  icon: mdi:ceiling-light
+light.bathroom_light:
+  icon: mdi:ceiling-light
+light.office_light:
+  icon: mdi:ceiling-light
+group.living_room:
+  icon: mdi-television
+sensor.microwave_energy_today:
+  friendly_name: Hoje
+  icon: mdi:flash
+sensor.microwave_current:
+  friendly_name: Atual
+  icon: mdi:flash
+sensor.microwave_energy_total:
+  friendly_name: Total
+  icon: mdi:flash
+sensor.microwave_energy_yesterday:
+  friendly_name: Ontem
+  icon: mdi:flash
+switch.oven:
+  friendly_name: Lava Roupas
+sensor.bathroom_humidity_change:
+  icon: mdi:water-percent
+switch.towel_switch:
+  icon: mdi:radiator
+sensor.octoprint_current_state:
+  friendly_name: Current State
+sensor.octoprint_job_percentage:
+  friendly_name: Job Percentage
+binary_sensor.octoprint_printing:
+  friendly_name: Printing
+  icon: mdi:printer-3d
+sensor.octoprint_time_elapsed:
+  friendly_name: Time Elapsed
+sensor.octoprint_time_remaining:
+  friendly_name: Time Remaining
+sensor.octoprint_target_bed_temp:
+  friendly_name: Bed temperature (target)
+sensor.octoprint_actual_bed_temp:
+  friendly_name: Bed temperature (actual)
+binary_sensor.octoprint_printing_error:
+  icon: mdi:alert-circle
+sensor.octoprint_actual_tool0_temp:
+  friendly_name: Extruder temperature (actual)
+sensor.octoprint_target_tool0_temp:
+  friendly_name: Extruder temperature (target)
+switch.microwave:
+  friendly_name: Lava-Louças
+switch.anet_switch:
+  friendly_name: Luz da Impressora
+light.luz_do_escritorio:
+  icon: mdi:ceiling-light
+light.luz_do_quarto:
+  icon: mdi:ceiling-light
+light.luz_da_lavanderia:
+  icon: mdi:outdoor-lamp

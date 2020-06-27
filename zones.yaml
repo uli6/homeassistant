@@ -1,0 +1,15 @@
+- name: Nova IMS
+  latitude: 38.7330383
+  longitude: -9.1607696
+  radius: 170
+  icon: mdi:school
+- name: Work
+  latitude: 38.7661142
+  longitude: -9.0970054
+  radius: 100
+  icon: mdi:briefcase
+- name: Mob
+  latitude: 38.722153
+  longitude: -9.137123
+  radius: 50
+  icon: mdi:guy-fawkes-mask

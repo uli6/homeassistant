@@ -1,0 +1,45 @@
+- platform: template
+  lights:
+    study_lamp:
+      value_template: "{{ is_state('input_boolean.study_light_boolean','on') }}"
+      turn_on:
+        - service: ifttt.trigger
+          data:
+            event: 'study_on'
+            value1: 'on'
+        - service: input_boolean.turn_on
+          entity_id: input_boolean.study_light_boolean
+      turn_off:
+        - service: ifttt.trigger
+          data:   
+            event: 'study_off'
+            value1: 'off'
+        - service: input_boolean.turn_off
+          entity_id: input_boolean.study_light_boolean
+
+- platform: mqtt
+  name: 'Luz do Quarto'
+  command_topic: 'cmnd/sonoff_bedroom/power'
+  state_topic: 'stat/sonoff_bedroom/POWER'
+  qos: 1
+  payload_on: 'ON'
+  payload_off: 'OFF'
+  retain: true
+
+- platform: mqtt
+  name: 'Luz do Escritório'
+  command_topic: 'cmnd/sonoff_guestroom/power'
+  state_topic: 'stat/sonoff_guestroom/POWER'
+  qos: 1
+  payload_on: 'ON'
+  payload_off: 'OFF'
+  retain: true
+
+- platform: mqtt
+  name: 'Luz da Lavanderia'
+  command_topic: 'cmnd/laundry/power'
+  state_topic: 'stat/laundry/POWER'
+  qos: 1
+  payload_on: 'ON'
+  payload_off: 'OFF'
+  retain: true

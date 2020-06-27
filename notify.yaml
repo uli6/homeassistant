@@ -1,0 +1,24 @@
+############################################################
+#            Send Notifications to Pushbullet App          #
+############################################################
+
+- platform: pushbullet
+  name: Alfred
+  api_key: !secret pushbullet_api_key
+
+- name: Alfred
+  platform: pushover
+  api_key: adgh3t65msqs9k6nctu6itagm1exbn
+  user_key: utj88prbepihxrze1cgzexdpkcmcun
+
+
+- platform: html5
+  name: Home Assistant
+  vapid_pub_key: BAA1wypsOqnKeZbOBvw4QJeM6vFb-ycBXZQc8sSL90jL7elqHyQFEdhw5ObRF_hxf3f5A9NWOkZV0EC2NeR1hcU
+  vapid_prv_key: AAAAKw8-qOA:APA91bEzu9BGRvUrkLZ4wOESKBXxNxzfxRMIkE2JKgVjWA_9lgqfhOfNuYKaP3V3IRXmPoNMxlMqq96CzebeY0Dw10dACrm79qT3Z3nkY9IwlRbC_rlPr3m2h9aPHhiEN1SCZhp00EnG
+  vapid_email: contact@ulisses.xyz
+
+
+- platform: nfandroidtv
+  name: Quarto
+  host: 192.168.1.198

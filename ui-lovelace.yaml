@@ -1,0 +1,300 @@
+
+title: Home
+# Include external resources
+resources:
+  - url: /local/community/miflora-card.js
+    type: module
+  - url: /local/community/mini-graph-card-bundle.js?v=0.9.3
+    type: module
+  - url: /local/community/mini-media-player.js
+    type: module
+  - url: /local/community/vacuum-card.js
+    type: module
+  - url: /local/community/weather-card.js
+    type: module
+  - url: /local/community/surveillance-card.js?v=0
+    type: module
+
+background: center / cover no-repeat url("/local/images/background.jpg") fixed
+
+####################################################
+#                                                  #
+#                View - Home                       #
+#                                                  #
+####################################################
+
+views:
+    # View tab title.
+  - title: Home
+    # Optional unique id for direct access /lovelace/${id}
+    id: Home
+    # Optional background (overwrites the global background).
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+            - type: picture-entity
+              entity: person.ulisses
+              image: /local/images/ulisses.jpg
+            - type: picture-entity
+              entity: person.daniela
+              image: /local/images/dani.jpg
+          - type: entities
+            entities:
+              - entity: input_boolean.guests_boolean
+          - type: picture-entity
+            entity: camera.foscam_camera
+      - type: vertical-stack
+        cards:
+          - type: custom:weather-card
+            entity: weather.dark_sky
+          - type: horizontal-stack
+            cards:
+              - type: custom:mini-graph-card
+                entities:
+                - sensor.living_room_sensor
+              - type: custom:mini-graph-card
+                entities:
+                - sensor.bedroom_sensor_2
+          - type: horizontal-stack
+            cards:
+              - type: custom:mini-graph-card
+                entities:
+                -  sensor.temperature_25
+              - type: custom:mini-graph-card
+                entities:
+                - sensor.bathroom_sensor
+          - type: custom:mini-graph-card
+            entities:
+              - entity: sensor.avg_humidade
+                name: Interior
+              - entity: sensor.outside_humidity
+                name: Exterior
+      - type: 'custom:vacuum-card'
+        entity: vacuum.deebot
+        stats:
+          default:
+            - attribute: component_heap
+              unit: horas
+              subtitle: Filtro
+            - attribute: component_sideBrush
+              unit: horas
+              subtitle: Escova Leteral
+            - attribute: component_brush
+              unit: horas
+              subtitle: Escova Principal
+          cleaning:
+            - attribute: cleaned_area
+              unit: m2
+              subtitle: Cleaning area
+            - attribute: cleaning_time
+              unit: minutes
+              subtitle: Cleaning time
+        actions:
+          - name: Sala
+            service: script.limparsala
+            icon: 'mdi:sofa'
+          - name: Quarto
+            service: script.limparquarto
+            icon: 'mdi:bed-empty'
+          - name: Escritório
+            service: script.limparoffice
+            icon: 'mdi:desktop-classic'
+          - name: Cozinha
+            service: script.limparkitchen
+            icon: 'mdi:silverware-fork-knife'
+          - name: Banheiro
+            service: script.limparbathroom
+            icon: 'mdi:shower'
+          - name: Hall
+            service: script.limparhall
+            icon: 'mdi:door'
+      - type: custom:mini-media-player
+        entity: media_player.casa
+        icon: mdi:amazon-alexa
+        artwork: cover
+        hide:
+          volume: true
+          source: true
+          power_state: false  
+
+####################################################
+#                                                  #
+#                View - Sala                       #
+#                                                  #
+####################################################
+
+   # View tab title.
+  - title: Sala de Estar
+    # Optional unique id for direct access /lovelace/${id}
+    id: sala
+    # Optional background (overwrites the global background).
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: custom:mini-graph-card
+                entities:
+                - sensor.living_room_sensor
+              - type: custom:mini-graph-card
+                entities:
+                - sensor.living_room_sensor_2
+          - type: custom:mini-media-player
+            entity: media_player.echo_dot_da_sala
+            icon: mdi:amazon-alexa
+            artwork: cover
+            hide:
+              volume: true
+              source: true
+              power_state: false
+      - type: vertical-stack
+        cards:
+          - type: thermostat
+            entity: climate.aquecedor_da_sala
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: button
+                entity: switch.light_3
+              - type: button
+                entity: switch.light_4
+              - type: light
+                entity: light.floor_lamp
+
+####################################################
+#                                                  #
+#                View - Quarto                     #
+#                                                  #
+####################################################
+
+   # View tab title.
+  - title: Quarto
+    # Optional unique id for direct access /lovelace/${id}
+    id: quarto
+    # Optional background (overwrites the global background).
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: custom:mini-graph-card
+                entities:
+                - sensor.bedroom_sensor_2
+              - type: custom:mini-graph-card
+                entities:
+                - sensor.bedroom_sensor
+          - type: custom:mini-media-player
+            entity: media_player.televisao_do_quarto
+            icon: mdi:television
+          - type: custom:mini-media-player
+            entity: media_player.echo_dot_do_quarto
+            icon: mdi:amazon-alexa
+            artwork: cover
+            hide:
+              volume: true
+              source: true
+              power_state: false
+      - type: vertical-stack
+        cards:
+        - type: thermostat
+          entity: climate.ar_condicionado
+      - type: vertical-stack
+        cards:
+        - type: button
+          entity: cover.bedroom_cover
+        - type: horizontal-stack
+          cards:
+            - type: light
+              entity: light.luz_do_quarto
+              icon: mdi:ceiling-light
+            - type: light
+              entity: light.table_lamp
+              icon: mdi:lamp
+
+####################################################
+#                                                  #
+#                View - Escritório                 #
+#                                                  #
+####################################################
+
+   # View tab title.
+  - title: Escritório
+    # Optional unique id for direct access /lovelace/${id}
+    id: Escritório
+    # Optional background (overwrites the global background).
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: custom:mini-graph-card
+                entities:
+                - sensor.temperature_25
+              - type: custom:mini-graph-card
+                entities:
+                - sensor.humidity_26
+          - type: custom:mini-media-player
+            entity: media_player.echo_dot_do_escritorio
+            icon: mdi:amazon-alexa
+            artwork: cover
+            hide:
+              volume: true
+              source: true
+              power_state: false
+      - type: vertical-stack
+        cards:
+        - type: horizontal-stack
+          cards:
+            - type: light
+              entity: light.luz_do_escritorio
+              icon: mdi:ceiling-light
+            - type: button
+              entity: switch.03200060600194a1d3ae
+              icon: mdi:led-strip
+            - type: light
+              entity: light.office_ambient_light
+              icon: mdi:lava-lamp
+
+####################################################
+#                                                  #
+#                View - Banheiro                   #
+#                                                  #
+####################################################
+
+   # View tab title.
+  - title: Banheiro
+    # Optional unique id for direct access /lovelace/${id}
+    id: Banheiro
+    # Optional background (overwrites the global background).
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: custom:mini-graph-card
+                entities:
+                - sensor.bathroom_sensor
+              - type: custom:mini-graph-card
+                entities:
+                - sensor.bathroom_sensor_2
+          - type: entity
+            entity: switch.aquecedor_de_toalhas
+      - type: vertical-stack
+        cards:
+        - type: horizontal-stack
+          cards:
+            - type: light
+              entity: light.bathroom_light_1
+              icon: mdi:string-lights
+            - type: light
+              entity: light.bathroom_light_2
+              icon: mdi:string-lights
+        - type: horizontal-stack
+          cards:
+            - type: entity
+              entity: binary_sensor.bathroom_motion_1
+            - type: entity
+              entity: binary_sensor.bathroom_motion_2

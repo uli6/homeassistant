@@ -1,0 +1,216 @@
+
+# #             Weather icon in the front page               #
+# ############################################################
+- platform: yr
+
+
+- platform: template
+  sensors:
+    avg_temperature:
+        friendly_name: "Temperatura Interna"
+        unit_of_measurement: '°C'
+        value_template: "{{ ((float(states.sensor.living_room_sensor.state) + float(states.sensor.bedroom_sensor_2.state) + float(states.sensor.temperature_25.state) + float(states.sensor.bathroom_sensor.state)) / 4) | round(1) }}"
+    avg_humidade:
+        friendly_name: "Humidade"
+        unit_of_measurement: '%'
+        value_template: "{{ ((float(states.sensor.living_room_sensor_2.state) + float(states.sensor.bedroom_sensor.state) + float(states.sensor.humidity_26.state) + float(states.sensor.bathroom_sensor_2.state)) / 4) | round(1) }}"    
+    balcony_door_status:
+        value_template: '{% if states.binary_sensor.openclose_4.state == "on" %}
+            Aberto
+          {% else %}
+            Fechado
+          {% endif %}'
+        friendly_name: 'Porta da Varanda'
+    bedroom_window_status:
+        value_template: '{% if states.binary_sensor.bed_window.state == "on" %}
+            Aberto
+          {% else %}
+            Fechado
+          {% endif %}'
+        friendly_name: 'Janela do Quarto'
+    bathroom_humidity_change:
+        value_template: '{% if states.binary_sensor.bathroom_humidity_falling.state == "on" %}
+            Descendo
+          {% elif states.binary_sensor.bathroom_humidity_rising.state == "on" %}
+            Subindo
+          {% else %}
+            Estável
+          {% endif %}'
+        friendly_name: 'Mudança na Humidade do Banheiro'
+    outside_humidity:
+        value_template: '{{ states.weather.dark_sky.attributes.humidity }}'
+        unit_of_measurement: '%'
+
+
+
+############################################################
+#           Get next Ferry Timne based on a Json           #
+############################################################
+
+- platform: rest
+  name: Next Ferry
+  resource: http://192.168.1.71:8123/local/ferry.json
+  value_template: >-
+          {% set time = now().strftime("%H:%M") %}
+          {% set key = 0 %}
+          {% set control = 1 %}
+          {%- if now().strftime("%w") == '0' or now().strftime("%w") == '6' -%}
+          {%- for i in range(1, 82) -%}
+             {%- if value_json.Weekends[i] > time -%}
+             {%- elif value_json.Weekends[i+1] <= time -%}
+             {%- else -%} 
+               {{ value_json.Weekends[i+1] }}
+             {%- endif -%} 
+          {%- endfor -%}
+          {% else %} 
+          {%- for i in range(1, 82) -%} 
+             {%- if value_json.Weekdays[i] > time -%}
+             {%- elif value_json.Weekdays[i+1] <= time -%}
+             {%- else -%} 
+               {{ value_json.Weekdays[i+1] }}
+             {%- endif -%} 
+          {%- endfor -%}
+          {% endif %}
+
+# ############################################################
+# #                       MQTT Sensors                       #
+# ############################################################
+
+- platform: mqtt
+  name: "Node RED"
+  state_topic: "checkIn/nodeRED"
+  expire_after: 300
+
+- platform: systemmonitor
+  resources:
+    - type: disk_use_percent
+      arg: /home
+    - type: memory_free
+    - type: memory_use
+    - type: processor_use
+    - type: swap_use_percent
+
+
+- platform: time_date
+  display_options:
+    - 'time'
+
+- platform: google_travel_time
+  api_key: !secret google_travel_api
+  origin: zone.home
+  destination: zone.work
+  travel_mode: transit
+  scan_interval: 360
+
+- platform: mqtt
+  name: "microwave energy today"
+  state_topic: "tele/microwave/SENSOR"
+  value_template: '{{ value_json.ENERGY.Today }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "microwave energy yesterday"
+  state_topic: "tele/microwave/SENSOR"
+  value_template: '{{ value_json.ENERGY.Yesterday }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "microwave energy total"
+  state_topic: "tele/microwave/SENSOR"
+  value_template: '{{ value_json.ENERGY.Total }}'
+  unit_of_measurement: "kWh"
+
+- platform: mqtt
+  name: "microwave power"
+  state_topic: "tele/microwave/SENSOR"
+  value_template: '{{ value_json.ENERGY.Power }}'
+  unit_of_measurement: "W"
+- platform: mqtt
+  name: "microwave voltage"
+  state_topic: "tele/microwave/SENSOR"
+  value_template: '{{ value_json.ENERGY.Voltage }}'
+  unit_of_measurement: "V"
+- platform: mqtt
+  name: "microwave current"
+  state_topic: "tele/microwave/SENSOR"
+  value_template: '{{ value_json.ENERGY.Current }}'
+  unit_of_measurement: "A"
+
+- platform: mqtt
+  name: "microwave energy today"
+  state_topic: "tele/microwave/SENSOR"
+  value_template: '{{ value_json.ENERGY.Today }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "microwave energy yesterday"
+  state_topic: "tele/microwave/SENSOR"
+  value_template: '{{ value_json.ENERGY.Yesterday }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "microwave energy total"
+  state_topic: "tele/microwave/SENSOR"
+  value_template: '{{ value_json.ENERGY.Total }}'
+  unit_of_measurement: "kWh"
+
+- platform: mqtt
+  name: "Washer Machine power"
+  state_topic: "tele/washer/SENSOR"
+  value_template: '{{ value_json.ENERGY.Power }}'
+  unit_of_measurement: "W"
+- platform: mqtt
+  name: "Washer Machine voltage"
+  state_topic: "tele/washer/SENSOR"
+  value_template: '{{ value_json.ENERGY.Voltage }}'
+  unit_of_measurement: "V"
+- platform: mqtt
+  name: "Washer Machine current"
+  state_topic: "tele/washer/SENSOR"
+  value_template: '{{ value_json.ENERGY.Current }}'
+  unit_of_measurement: "A"
+
+- platform: mqtt
+  name: "Washer Machine energy today"
+  state_topic: "tele/washer/SENSOR"
+  value_template: '{{ value_json.ENERGY.Today }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Washer Machine energy yesterday"
+  state_topic: "tele/washer/SENSOR"
+  value_template: '{{ value_json.ENERGY.Yesterday }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Washer Machine energy total"
+  state_topic: "tele/washer/SENSOR"
+  value_template: '{{ value_json.ENERGY.Total }}'
+  unit_of_measurement: "kWh"
+
+- platform: mqtt
+  name: "Luz"
+  state_topic: "miflora/Planta"
+  value_template: '{{ value_json.light }}'
+  unit_of_measurement: "lux"
+- platform: mqtt
+  name: "Temperatura"
+  state_topic: "miflora/Planta"
+  value_template: '{{ value_json.temperature }}'
+  unit_of_measurement: "C"
+- platform: mqtt
+  name: "Solo"
+  state_topic: "miflora/Planta"
+  value_template: '{{ value_json.moisture }}'
+  unit_of_measurement: "%"
+- platform: mqtt
+  name: "Condutividade"
+  state_topic: "miflora/Planta"
+  value_template: '{{ value_json.conductivity }}'
+  unit_of_measurement: "μS/cm"
+- platform: mqtt
+  name: "Bateria"
+  state_topic: "miflora/Planta"
+  value_template: '{{ value_json.battery }}'
+  unit_of_measurement: "%"
+
+- platform: mqtt
+  name: "Botija de Gás"
+  state_topic: "home/gasscale/measure"
+  unit_of_measurement: '%'
+  value_template: '{{ value_json.measure }}'
+

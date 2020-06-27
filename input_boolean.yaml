@@ -1,0 +1,33 @@
+guests_boolean:
+  name: Guest Mode
+besttime_boolean:
+  name: Best time
+start_cast:
+  name: Start Cast
+node_red:
+  name: Node-Red Watchdog
+  initial: on
+bedroom_tv_timer_start:
+  name: Timer TV
+  initial: off
+clean_office:
+  name: Limpar Escritório
+  initial: off
+clean_livingroom:
+  name: Limpar Sala
+  initial: off
+clean_bedroom:
+  name: Limpar Quarto
+  initial: off
+clean_kitchen:
+  name: Limpar Cozinha
+  initial: off
+clean_bathroom:
+  name: Limpar Banheiro
+  initial: off
+clean_hall:
+  name: Limpar Hall
+  initial: off
+climate_switch:
+  name: Aquecimento Central
+  initial: off

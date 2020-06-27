@@ -1,0 +1,17 @@
+- platform: trend
+  sensors:
+    bathroom_humidity_rising:
+      entity_id: sensor.bathroom_sensor_2
+      friendly_name: Humidade Subindo
+      sample_duration: 7200
+      min_gradient: 0.02
+    bathroom_humidity_falling:
+      entity_id: sensor.bathroom_sensor_2
+      friendly_name: Humidade Descendo
+      sample_duration: 7200
+      min_gradient: -0.01
+
+- platform: octoprint
+  monitored_conditions:
+    - Printing
+    - Printing Error

@@ -1,0 +1,22 @@
+
+#Sala
+- platform: generic_thermostat
+  name: Aquecedor da Sala
+  heater: switch.aquecedor_da_sala
+  target_sensor: sensor.living_room_temp
+
+#Escritório
+# - platform: generic_thermostat
+#   name: Office Climate
+#   heater: light.study_lamp
+#   target_sensor: sensor.office_temp
+
+#Quarto
+- platform: smartir
+  name: Ar condicionado
+  unique_id: bedroom_ac
+  device_code: 1285
+  controller_data: 192.168.1.200
+  temperature_sensor: sensor.bedroom_temp
+  humidity_sensor: sensor.bedroom_humidity
+  power_sensor: binary_sensor.ac_power

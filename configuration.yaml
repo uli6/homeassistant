@@ -1,0 +1,67 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+frontend:
+  themes: !include_dir_named themes
+
+lovelace:
+  mode: yaml
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+binary_sensor: !include binary_sensors.yaml
+camera: !include camera.yaml
+climate: !include climate.yaml
+cover: !include cover.yaml
+input_boolean: !include input_boolean.yaml
+light: !include lights.yaml
+media_player: !include mediaplayer.yaml
+switch: !include switches.yaml
+sensor: !include sensors.yaml
+
+input_text:
+  alexa_actionable_notification:
+    name: Alexa Actionable Notification Holder
+    max: 255
+    initial: '{"text": "This is a test of the alexa actions custom skill. Did it work?", "event": "actionable.skill.test"}'
+
+# http:
+#   server_port: 8123
+#   ssl_certificate: /ssl/fullchain.pem
+#   ssl_key: /ssl/privkey.pem
+
+weather:
+  - platform: darksky
+    api_key: !secret darksky_api
+
+media_extractor:
+
+downloader:
+  download_dir: www
+
+# octoprint:
+#   host: !secret octoprint_host
+#   api_key: !secret octoprint_key
+#   number_of_tools: 2
+#   bed: true
+
+vacuum:
+  - platform: deebot
+    username: !secret deebot_user 
+    password: !secret deebot_pass
+    country: PT
+    continent: EU
+    deviceid: E02R12796B09HCA60007
+    # Optional
+    live_map: True                    # Enable Live Map.. may cause issues on low power hardware | Default: True
+    show_color_rooms: True           # Enable draw room colors as in the app | Default: False
+    livemappath: 'www/live_map.png'   # Path where to save live_map
+
+smartir:

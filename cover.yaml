@@ -1,0 +1,22 @@
+- platform: template
+  covers:
+    bedroom_cover:
+      friendly_name: "Estore do Quarto"
+      open_cover:
+        - service: mqtt.publish
+          data:
+            topic: 'cmnd/sonoff_blinder/power1'
+            payload: 'OFF'
+        - service: mqtt.publish
+          data:
+            topic: 'cmnd/sonoff_blinder/power1'
+            payload: 'ON'
+      close_cover:
+        - service: mqtt.publish
+          data:
+            topic: 'cmnd/sonoff_blinder/power3'
+            payload: 'OFF'
+        - service: mqtt.publish
+          data:
+            topic: 'cmnd/sonoff_blinder/power3'
+            payload: 'ON'
