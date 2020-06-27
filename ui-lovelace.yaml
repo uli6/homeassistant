@@ -280,8 +280,12 @@ views:
               - type: custom:mini-graph-card
                 entities:
                 - sensor.bathroom_sensor_2
-          - type: entity
-            entity: switch.aquecedor_de_toalhas
+          - type: vertical-stack
+            cards:
+              - type: entity
+                entity: sensor.bathroom_humidity_change
+              - type: entity
+                entity: switch.aquecedor_de_toalhas
       - type: vertical-stack
         cards:
         - type: horizontal-stack
