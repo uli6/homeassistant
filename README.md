@@ -50,10 +50,6 @@
 | <a href="https://www.gearbest.com/smart-socket-plug/pp_009249213265.html?wid=1433363" target="_blank">**Sonoff Basic**</a> | <a href="https://www.gearbest.com/smart-socket-plug/pp_009419936721.html?wid=1433363" target="_blank">**Sonoff Mini**</a> | <a href="https://www.gearbest.com/smart-home-controls/pp_009395405312.html?wid=1433363" target="_blank">**Smart Wireless Switch**</a> |
 | :---: |:---:| :---:|
 | <a href="https://www.gearbest.com/access-control/pp_626699.html?wid=1349303" target="_blank">**Aqara Light Control Smart Switch**</a>| <a href="https://www.gearbest.com/home-smart-improvements/pp_3008172811346549.html?wid=2000001" target="_blank">**Smart Light Switch Wireless Version**</a>
----
-
-| [![Aqara Window Door Sensor](https://cupaonahora.com/wp-content/uploads/2019/11/Xiaomi-Aqara-Window-Door-Sensor.jpg)](https://www.gearbest.com/access-control/pp_626703.html?wid=1433363)    | [![FVCproductions](https://avatars1.githubusercontent.com/u/4284691?v=3&s=200)](http://fvcproductions.com) | [![FVCproductions](https://avatars1.githubusercontent.com/u/4284691?v=3&s=200)](http://fvcproductions.com)  |
-| <a href="http://github.com/fvcproductions" target="_blank">`github.com/fvcproductions`</a> | <a href="http://github.com/fvcproductions" target="_blank">`github.com/fvcproductions`</a> | <a href="http://github.com/fvcproductions" target="_blank">`github.com/fvcproductions`</a> |
 
 ## License
 
