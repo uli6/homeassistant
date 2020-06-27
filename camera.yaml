@@ -3,7 +3,7 @@
   username: !secret foscam_user
   password: !secret foscam_pass
   port: 88
-# - platform: mjpeg
-#   name: OctoPrint
-#   still_image_url: http://192.168.1.89/webcam/?action=snapshot
-#   mjpeg_url: http://192.168.1.89/webcam/?action=stream
+- platform: mjpeg
+  name: OctoPrint
+  still_image_url: http://192.168.1.89/webcam/?action=snapshot
+  mjpeg_url: http://192.168.1.89/webcam/?action=stream
