@@ -5,14 +5,16 @@
 !*.yaml
 !.gitignore
 !*.md
+!www
 
 # Ignore folders.
 .storage
 .cloud
 .google.token
-.www
+.www/images
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
 ip_bans.yaml
 secrets.yaml
 known_devices.yaml
+HomeAssistant.code-workspace
