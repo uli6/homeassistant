@@ -2,7 +2,7 @@
 
 # My home Assistant Configuration
 
-> I've have been using Home Assistant since late 2017 and I've a quite complex configuration with a lots of sensors, light bulbs and so on. Since I'm not a developer, I usually made some changes that f**** all my configuration. Thus, this repo is to store it and track the changes.
+> I've been using Home Assistant since late 2017 and I've a quite complex configuration with a lots of sensors, light bulbs and so on. Since I'm not a developer, I usually made some changes that f**** all my configuration. Thus, this repo is to store it and track the changes.
 
 **My Addons**
 
