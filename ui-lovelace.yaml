@@ -332,11 +332,53 @@ views:
 # #                                                  #
 # ####################################################
 
-#    # View tab title.
-#   - title: 3d Printer
-#     # Optional unique id for direct access /lovelace/${id}
-#     id: 3d Printer
-#     # Optional background (overwrites the global background).
-#     cards:
-#       - type: vertical-stack
-#         cards:
+   # View tab title.
+  - title: 3d Printer
+    # Optional unique id for direct access /lovelace/${id}
+    id: 3d Printer
+    # Optional background (overwrites the global background).
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: button
+                entity: sensor.octoprint_current_state
+                icon:   mdi:printer-3d-nozzle
+                name: ' '
+              - type: button
+                entity: input_boolean.switch_3d_print
+                icon:   mdi:power
+                name: ' '
+              - type: button
+                entity: binary_sensor.octoprint_printing_error
+                icon:   mdi:printer-alert
+                name: ' '
+          - type: picture-entity
+            entity: camera.octoprint
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: custom:mini-graph-card
+                entities:
+                  - entity: sensor.octoprint_actual_tool0_temp
+                    name: Noozle temp
+                  - entity: sensor.octoprint_target_tool0_temp
+                    name: Noozle temp target
+              - type: custom:mini-graph-card
+                entities:
+                  - entity: sensor.octoprint_actual_bed_temp
+                    name: Bed temp
+                  - entity: sensor.octoprint_target_bed_temp
+                    name: Bed temp target
+          - type: horizontal-stack
+            cards:
+              - type: button
+                entity: sensor.octoprint_current_state
+                icon: mdi:printer-3d
+                name: 'Operational'
+              - type: button
+                entity: sensor.octoprint_job_percentage
+                icon: mdi:file-percent
+                name: '0%'

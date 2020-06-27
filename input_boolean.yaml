@@ -25,8 +25,8 @@ clean_kitchen:
 clean_bathroom:
   name: Limpar Banheiro
   initial: off
-clean_hall:
-  name: Limpar Hall
+switch_3d_print:
+  name: Impressora 3D
   initial: off
 climate_switch:
   name: Aquecimento Central
