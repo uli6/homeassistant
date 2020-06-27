@@ -326,17 +326,17 @@ views:
               source: true
               power_state: false
 
-####################################################
-#                                                  #
-#                View - 3D Printer                 #
-#                                                  #
-####################################################
+# ####################################################
+# #                                                  #
+# #                View - 3D Printer                 #
+# #                                                  #
+# ####################################################
 
-   # View tab title.
-  - title: 3d Printer
-    # Optional unique id for direct access /lovelace/${id}
-    id: 3d Printer
-    # Optional background (overwrites the global background).
-    cards:
-      - type: vertical-stack
-        cards:
+#    # View tab title.
+#   - title: 3d Printer
+#     # Optional unique id for direct access /lovelace/${id}
+#     id: 3d Printer
+#     # Optional background (overwrites the global background).
+#     cards:
+#       - type: vertical-stack
+#         cards:
