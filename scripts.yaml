@@ -1,83 +1,89 @@
 activate_alexa_actionable_notification:
-  description: 'Activates an actionable notification on a specific echo device'
+  description: Activates an actionable notification on a specific echo device
   fields:
-    text:
-      description: 'The text you would like alexa to speak.'
-      example: 'What would you like the thermostat set to?'
+    alexa_device:
+      description: Alexa device you want to trigger
+      example: media_player.bedroom_echo_dot
     event_id:
-      description: 'Correlation ID for event responses'
-      example: 'ask_for_temperature'
-    alexa_device: 
-      description: 'Alexa device you want to trigger'
-      example: 'media_player.bedroom_echo_dot'
+      description: Correlation ID for event responses
+      example: ask_for_temperature
+    text:
+      description: The text you would like alexa to speak.
+      example: What would you like the thermostat set to?
   sequence:
-    - service: input_text.set_value
-      data_template:
-        entity_id: input_text.alexa_actionable_notification
-        value: '{"text": "{{ text }}", "event": "{{ event_id }}"}'
-    - service: media_player.play_media
-      data_template:
-        entity_id: "{{ alexa_device }}"
-        media_content_type: skill
-        media_content_id: amzn1.ask.skill.77cbe8d9-c794-4ab0-9f06-a51a49224f25
-
+  - data_template:
+      entity_id: input_text.alexa_actionable_notification
+      value: '{"text": "{{ text }}", "event": "{{ event_id }}"}'
+    service: input_text.set_value
+  - data_template:
+      entity_id: '{{ alexa_device }}'
+      media_content_id: amzn1.ask.skill.77cbe8d9-c794-4ab0-9f06-a51a49224f25
+      media_content_type: skill
+    entity_id: media_player.casa
+    service: media_player.play_media
 limparsala:
   alias: Limpar Sala
   sequence:
-  - service: vacuum.send_command
-    data:
-      entity_id: vacuum.deebot
+  - data:
       command: spot_area
+      entity_id: vacuum.deebot
       params:
-        rooms: 5
         cleanings: 1
+        rooms: 5
+    entity_id: vacuum.deebot
+    service: vacuum.send_command
 limparquarto:
   alias: Limpar Quarto
   sequence:
-  - service: vacuum.send_command
-    data:
-      entity_id: vacuum.deebot
+  - data:
       command: spot_area
+      entity_id: vacuum.deebot
       params:
-        rooms: 7
         cleanings: 1
+        rooms: 7
+    entity_id: vacuum.deebot
+    service: vacuum.send_command
 limparhall:
   alias: Limpar Hall
   sequence:
-  - service: vacuum.send_command
-    data:
-      entity_id: vacuum.deebot
+  - data:
       command: spot_area
+      entity_id: vacuum.deebot
       params:
-        rooms: 3
         cleanings: 1
+        rooms: 3
+    entity_id: vacuum.deebot
+    service: vacuum.send_command
 limparbathroom:
   alias: Limpar Banheiro
   sequence:
-  - service: vacuum.send_command
-    data:
-      entity_id: vacuum.deebot
+  - data:
       command: spot_area
+      entity_id: vacuum.deebot
       params:
-        rooms: 4
         cleanings: 1
+        rooms: 4
+    entity_id: vacuum.deebot
+    service: vacuum.send_command
 limparkitchen:
   alias: Limpar Cozinha
   sequence:
-  - service: vacuum.send_command
-    data:
-      entity_id: vacuum.deebot
+  - data:
       command: spot_area
+      entity_id: vacuum.deebot
       params:
-        rooms: 2
         cleanings: 1
+        rooms: 2
+    entity_id: vacuum.deebot
+    service: vacuum.send_command
 limparoffice:
   alias: Limpar Escritório
   sequence:
-  - service: vacuum.send_command
-    data:
-      entity_id: vacuum.deebot
+  - data:
       command: spot_area
+      entity_id: vacuum.deebot
       params:
-        rooms: 1
         cleanings: 1
+        rooms: 1
+    entity_id: vacuum.deebot
+    service: vacuum.send_command

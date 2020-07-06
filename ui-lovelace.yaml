@@ -142,6 +142,10 @@ views:
                 entities:
                 - sensor.living_room_sensor_2
           - type: custom:mini-media-player
+            entity: media_player.televisao_da_sala
+            icon: mdi:television
+            artwork: cover
+          - type: custom:mini-media-player
             entity: media_player.echo_dot_da_sala
             icon: mdi:amazon-alexa
             artwork: cover
@@ -257,7 +261,23 @@ views:
             - type: light
               entity: light.office_ambient_light
               icon: mdi:lava-lamp
-
+      - type: vertical-stack
+        cards:
+          - type: entity
+            entity: sensor.hp_deskjet_3700_series
+          - type: custom:mini-graph-card
+            name: Tinteiros
+            show_state: false
+            height: 100
+            entities:
+                - entity: sensor.hp_deskjet_3700_series_black_ink
+                - entity: sensor.hp_deskjet_3700_series_tri_color_ink 
+            show_indicator: true
+            aggregate_func: last
+            unit: '%'
+            group_by: date   
+            show:
+              graph: bar
 ####################################################
 #                                                  #
 #                View - Banheiro                   #
@@ -325,6 +345,8 @@ views:
               volume: true
               source: true
               power_state: false
+          - type: entity
+            entity: sensor.qualidade_do_ar
 
 # ####################################################
 # #                                                  #

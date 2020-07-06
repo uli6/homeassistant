@@ -63,7 +63,7 @@
   retain: true
 
 - platform: mqtt
-  name: 'Televisão da Sala'
+  name: 'Tomada da Televisão da Sala'
   command_topic: 'cmnd/sonoff_tv_sala/power'
   state_topic: 'stat/sonoff_tv_sala/POWER'
   qos: 1
@@ -72,6 +72,11 @@
   retain: true
 
 - platform: broadlink
-  host: 192.168.1.200
+  host: 192.168.1.6
   mac: '24:df:a7:4f:d1:94'
+  type: rm4c_mini
+
+- platform: broadlink
+  host: 192.168.1.7
+  mac: '24:df:a7:34:9b:3a'
   type: rm4c_mini

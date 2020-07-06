@@ -95,92 +95,85 @@
   display_options:
     - 'time'
 
-- platform: google_travel_time
-  api_key: !secret google_travel_api
-  origin: zone.home
-  destination: zone.work
-  travel_mode: transit
-  scan_interval: 360
+# - platform: mqtt
+#   name: "microwave energy today"
+#   state_topic: "tele/microwave/SENSOR"
+#   value_template: '{{ value_json.ENERGY.Today }}'
+#   unit_of_measurement: "kWh"
+# - platform: mqtt
+#   name: "microwave energy yesterday"
+#   state_topic: "tele/microwave/SENSOR"
+#   value_template: '{{ value_json.ENERGY.Yesterday }}'
+#   unit_of_measurement: "kWh"
+# - platform: mqtt
+#   name: "microwave energy total"
+#   state_topic: "tele/microwave/SENSOR"
+#   value_template: '{{ value_json.ENERGY.Total }}'
+#   unit_of_measurement: "kWh"
 
-- platform: mqtt
-  name: "microwave energy today"
-  state_topic: "tele/microwave/SENSOR"
-  value_template: '{{ value_json.ENERGY.Today }}'
-  unit_of_measurement: "kWh"
-- platform: mqtt
-  name: "microwave energy yesterday"
-  state_topic: "tele/microwave/SENSOR"
-  value_template: '{{ value_json.ENERGY.Yesterday }}'
-  unit_of_measurement: "kWh"
-- platform: mqtt
-  name: "microwave energy total"
-  state_topic: "tele/microwave/SENSOR"
-  value_template: '{{ value_json.ENERGY.Total }}'
-  unit_of_measurement: "kWh"
+# - platform: mqtt
+#   name: "microwave power"
+#   state_topic: "tele/microwave/SENSOR"
+#   value_template: '{{ value_json.ENERGY.Power }}'
+#   unit_of_measurement: "W"
+# - platform: mqtt
+#   name: "microwave voltage"
+#   state_topic: "tele/microwave/SENSOR"
+#   value_template: '{{ value_json.ENERGY.Voltage }}'
+#   unit_of_measurement: "V"
+# - platform: mqtt
+#   name: "microwave current"
+#   state_topic: "tele/microwave/SENSOR"
+#   value_template: '{{ value_json.ENERGY.Current }}'
+#   unit_of_measurement: "A"
 
-- platform: mqtt
-  name: "microwave power"
-  state_topic: "tele/microwave/SENSOR"
-  value_template: '{{ value_json.ENERGY.Power }}'
-  unit_of_measurement: "W"
-- platform: mqtt
-  name: "microwave voltage"
-  state_topic: "tele/microwave/SENSOR"
-  value_template: '{{ value_json.ENERGY.Voltage }}'
-  unit_of_measurement: "V"
-- platform: mqtt
-  name: "microwave current"
-  state_topic: "tele/microwave/SENSOR"
-  value_template: '{{ value_json.ENERGY.Current }}'
-  unit_of_measurement: "A"
+# - platform: mqtt
+#   name: "microwave energy today"
+#   state_topic: "tele/microwave/SENSOR"
+#   value_template: '{{ value_json.ENERGY.Today }}'
+#   unit_of_measurement: "kWh"
+# - platform: mqtt
+#   name: "microwave energy yesterday"
+#   state_topic: "tele/microwave/SENSOR"
+#   value_template: '{{ value_json.ENERGY.Yesterday }}'
+#   unit_of_measurement: "kWh"
+# - platform: mqtt
+#   name: "microwave energy total"
+#   state_topic: "tele/microwave/SENSOR"
+#   value_template: '{{ value_json.ENERGY.Total }}'
+#   unit_of_measurement: "kWh"
 
-- platform: mqtt
-  name: "microwave energy today"
-  state_topic: "tele/microwave/SENSOR"
-  value_template: '{{ value_json.ENERGY.Today }}'
-  unit_of_measurement: "kWh"
-- platform: mqtt
-  name: "microwave energy yesterday"
-  state_topic: "tele/microwave/SENSOR"
-  value_template: '{{ value_json.ENERGY.Yesterday }}'
-  unit_of_measurement: "kWh"
-- platform: mqtt
-  name: "microwave energy total"
-  state_topic: "tele/microwave/SENSOR"
-  value_template: '{{ value_json.ENERGY.Total }}'
-  unit_of_measurement: "kWh"
+# - platform: mqtt
+#   name: "Washer Machine power"
+#   state_topic: "tele/washer/SENSOR"
+#   value_template: '{{ value_json.ENERGY.Power }}'
+#   unit_of_measurement: "W"
+# - platform: mqtt
+#   name: "Washer Machine voltage"
+#   state_topic: "tele/washer/SENSOR"
+#   value_template: '{{ value_json.ENERGY.Voltage }}'
+#   unit_of_measurement: "V"
+# - platform: mqtt
+#   name: "Washer Machine current"
+#   state_topic: "tele/washer/SENSOR"
+#   value_template: '{{ value_json.ENERGY.Current }}'
+#   unit_of_measurement: "A"
 
-- platform: mqtt
-  name: "Washer Machine power"
-  state_topic: "tele/washer/SENSOR"
-  value_template: '{{ value_json.ENERGY.Power }}'
-  unit_of_measurement: "W"
-- platform: mqtt
-  name: "Washer Machine voltage"
-  state_topic: "tele/washer/SENSOR"
-  value_template: '{{ value_json.ENERGY.Voltage }}'
-  unit_of_measurement: "V"
-- platform: mqtt
-  name: "Washer Machine current"
-  state_topic: "tele/washer/SENSOR"
-  value_template: '{{ value_json.ENERGY.Current }}'
-  unit_of_measurement: "A"
-
-- platform: mqtt
-  name: "Washer Machine energy today"
-  state_topic: "tele/washer/SENSOR"
-  value_template: '{{ value_json.ENERGY.Today }}'
-  unit_of_measurement: "kWh"
-- platform: mqtt
-  name: "Washer Machine energy yesterday"
-  state_topic: "tele/washer/SENSOR"
-  value_template: '{{ value_json.ENERGY.Yesterday }}'
-  unit_of_measurement: "kWh"
-- platform: mqtt
-  name: "Washer Machine energy total"
-  state_topic: "tele/washer/SENSOR"
-  value_template: '{{ value_json.ENERGY.Total }}'
-  unit_of_measurement: "kWh"
+# - platform: mqtt
+#   name: "Washer Machine energy today"
+#   state_topic: "tele/washer/SENSOR"
+#   value_template: '{{ value_json.ENERGY.Today }}'
+#   unit_of_measurement: "kWh"
+# - platform: mqtt
+#   name: "Washer Machine energy yesterday"
+#   state_topic: "tele/washer/SENSOR"
+#   value_template: '{{ value_json.ENERGY.Yesterday }}'
+#   unit_of_measurement: "kWh"
+# - platform: mqtt
+#   name: "Washer Machine energy total"
+#   state_topic: "tele/washer/SENSOR"
+#   value_template: '{{ value_json.ENERGY.Total }}'
+#   unit_of_measurement: "kWh"
 
 - platform: mqtt
   name: "Luz"
@@ -214,3 +207,7 @@
   unit_of_measurement: '%'
   value_template: '{{ value_json.measure }}'
 
+- platform: mqtt
+  name: "Qualidade do Ar"
+  state_topic: "home/gasleak/output"
+  value_template: '{{ value_json.result }}'

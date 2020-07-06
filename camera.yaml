@@ -1,5 +1,5 @@
 - platform: foscam
-  ip: 192.168.1.197
+  ip: 192.168.1.3
   username: !secret foscam_user
   password: !secret foscam_pass
   port: 88

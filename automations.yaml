@@ -1,1 +1,23 @@
-[]
+##############################################################################################
+#                                   Node-RED Watchdog                                        #
+############################################################################################## 
+
+- id: '876231'
+  alias: Restart Node-RED
+  trigger:
+    - platform: state
+      entity_id: sensor.node_red
+      from: 'on'
+      to: 'unknown'
+    - platform: time
+        # When 'at' is used, you cannot also match on hour, minute, seconds.
+        # Military time format.
+      at: '16:23:00'
+    - platform: time
+            # When 'at' is used, you cannot also match on hour, minute, seconds.
+            # Military time format.
+      at: '04:14:00'
+  action:
+    - service: hassio.addon_restart
+      data:
+        addon: "a0d7b954_nodered"
