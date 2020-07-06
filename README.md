@@ -16,6 +16,7 @@
 - <a href="https://github.com/hassio-addons/addon-tasmoadmin" target="_blank">`TasmoAdmin `</a>.
 - <a href="https://github.com/home-assistant/hassio-addons/tree/master/ssh" target="_blank">`Terminal & SSH `</a>.
 - <a href="https://github.com/home-assistant/hassio-addons/tree/master/deconz" target="_blank">`deCONZ `</a>.
+- <a href="https://github.com/hassio-addons/addon-adguard-home" target="_blank">`AdGuard Home `</a>.
 
 **Custom Components**
 
