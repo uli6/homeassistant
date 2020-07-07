@@ -14,8 +14,13 @@ resources:
     type: module
   - url: /local/community/surveillance-card.js?v=0
     type: module
+  - url: /local/community/custom-header.js?v=0.0.1
+    type: module
 
 background: center / cover no-repeat url("/local/images/background.jpg") fixed
+
+custom_header:
+  compact_mode: true
 
 ####################################################
 #                                                  #
