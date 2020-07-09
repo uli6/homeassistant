@@ -241,10 +241,10 @@ views:
             cards:
               - type: custom:mini-graph-card
                 entities:
-                - sensor.temperature_25
+                - sensor.office
               - type: custom:mini-graph-card
                 entities:
-                - sensor.humidity_26
+                - sensor.office_2
           - type: custom:mini-media-player
             entity: media_player.echo_dot_do_escritorio
             icon: mdi:amazon-alexa
@@ -283,6 +283,27 @@ views:
             group_by: date   
             show:
               graph: bar
+      - type: vertical-stack
+        cards:
+          - type: custom:miflora-card
+            title: 'Schefflera Arboricola'
+            image: images/Shefflera.jpg
+            min_moisture: 15
+            max_moisture: 60
+            min_conductivity: 350
+            min_temperature: 12
+            entities:
+            - entity: sensor.schefflera_solo
+              type: moisture
+            - entity: sensor.schefflera_luz
+              type: intensity
+            - entity: sensor.schefflera_temperatura
+              type: temperature
+            - entity: sensor.schefflera_condutividade
+              type: conductivity
+              name: Fertilização
+            - entity: sensor.schefflera_bateria
+              type: battery
 ####################################################
 #                                                  #
 #                View - Banheiro                   #
@@ -301,10 +322,10 @@ views:
             cards:
               - type: custom:mini-graph-card
                 entities:
-                - sensor.bathroom_sensor
+                - sensor.bathroom
               - type: custom:mini-graph-card
                 entities:
-                - sensor.bathroom_sensor_2
+                - sensor.bathroom_2
           - type: vertical-stack
             cards:
               - type: entity
@@ -326,7 +347,7 @@ views:
             - type: entity
               entity: binary_sensor.bathroom_motion_1
             - type: entity
-              entity: binary_sensor.bathroom_motion_2
+              entity:  binary_sensor.motion_sensor
 
 ####################################################
 #                                                  #

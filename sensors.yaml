@@ -9,11 +9,11 @@
     avg_temperature:
         friendly_name: "Temperatura Interna"
         unit_of_measurement: '°C'
-        value_template: "{{ ((float(states.sensor.living_room_sensor.state) + float(states.sensor.bedroom_sensor_2.state) + float(states.sensor.temperature_25.state) + float(states.sensor.bathroom_sensor.state)) / 4) | round(1) }}"
+        value_template: "{{ ((float(states.sensor.living_room_sensor.state) + float(states.sensor.bedroom_sensor_2.state) + float(states.sensor.office.state) + float(states.sensor.bathroom.state)) / 4) | round(1) }}"
     avg_humidade:
         friendly_name: "Humidade"
         unit_of_measurement: '%'
-        value_template: "{{ ((float(states.sensor.living_room_sensor_2.state) + float(states.sensor.bedroom_sensor.state) + float(states.sensor.humidity_26.state) + float(states.sensor.bathroom_sensor_2.state)) / 4) | round(1) }}"    
+        value_template: "{{ ((float(states.sensor.living_room_sensor_2.state) + float(states.sensor.bedroom_sensor.state) + float(states.sensor.office_2.state) + float(states.sensor.bathroom_2.state)) / 4) | round(1) }}"    
     balcony_door_status:
         value_template: '{% if states.binary_sensor.openclose_4.state == "on" %}
             Aberto
@@ -176,28 +176,28 @@
 #   unit_of_measurement: "kWh"
 
 - platform: mqtt
-  name: "Luz"
-  state_topic: "miflora/Planta"
+  name: "Schefflera Luz"
+  state_topic: "miflora/Schefflera"
   value_template: '{{ value_json.light }}'
   unit_of_measurement: "lux"
 - platform: mqtt
-  name: "Temperatura"
-  state_topic: "miflora/Planta"
+  name: "Schefflera Temperatura"
+  state_topic: "miflora/Schefflera"
   value_template: '{{ value_json.temperature }}'
   unit_of_measurement: "C"
 - platform: mqtt
-  name: "Solo"
-  state_topic: "miflora/Planta"
+  name: "Schefflera Solo"
+  state_topic: "miflora/Schefflera"
   value_template: '{{ value_json.moisture }}'
   unit_of_measurement: "%"
 - platform: mqtt
-  name: "Condutividade"
-  state_topic: "miflora/Planta"
+  name: "Schefflera Condutividade"
+  state_topic: "miflora/Schefflera"
   value_template: '{{ value_json.conductivity }}'
   unit_of_measurement: "μS/cm"
 - platform: mqtt
-  name: "Bateria"
-  state_topic: "miflora/Planta"
+  name: "Schefflera Bateria"
+  state_topic: "miflora/Schefflera"
   value_template: '{{ value_json.battery }}'
   unit_of_measurement: "%"
 
