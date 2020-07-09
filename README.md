@@ -44,7 +44,7 @@
 
 | <a href="https://www.gearbest.com/access-control/pp_626703.html?wid=1433363" target="_blank">**Aqara Window Door Sensor**</a> | <a href="https://www.gearbest.com/access-control/pp_626702.html?wid=1433363" target="_blank">**Temperature Humidity Sensor**</a> | <a href="https://www.gearbest.com/alarm-systems/pp_659226.html?wid=1433363" target="_blank">**Human Body Motion Sensor**</a> |
 | :---: |:---:| :---:|
-| <a href="https://www.gearbest.com/smart-home-controls/pp_009661787808.html?wid=1433363" target="_blank">**Aqara Smart Motion Sensor**</a>
+| <a href="https://www.gearbest.com/smart-home-controls/pp_009661787808.html?wid=1433363" target="_blank">**Aqara Smart Motion Sensor**</a> | <a href="https://pt.aliexpress.com/item/33017406335.html?spm=a2g0o.productlist.0.0.5c243584CdRt2H&algo_pvid=03ea5654-837d-410d-a1f6-f9f4c9ecc4cd&algo_expid=03ea5654-837d-410d-a1f6-f9f4c9ecc4cd-8&btsid=0ab6d69515942910615735602e96a7&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_" target="_blank">**Mi Flora**</a>
 
 > Switches
 
