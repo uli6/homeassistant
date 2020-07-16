@@ -70,3 +70,7 @@ smartir:
 
 pi_hole:
   - host: 192.168.1.14
+
+recorder:
+  db_url: !secret mariadb 
+

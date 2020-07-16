@@ -1,15 +1,15 @@
 - platform: androidtv
-  host: 192.168.1.198
+  host: 10.10.20.3
   name: 'Televisão do Quarto'
   adb_server_ip: 127.0.0.1
     
 - platform: kodi
-  host: 192.168.1.198
+  host: 10.10.20.3
 
 
 - platform: smartir
   name: Televisão da Sala
   unique_id: living_room_tv
   device_code: 1000
-  controller_data: 192.168.1.7
+  controller_data: 10.10.20.6
   power_sensor: binary_sensor.tv_power

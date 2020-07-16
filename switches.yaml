@@ -62,21 +62,12 @@
   payload_off: 'OFF'
   retain: true
 
-- platform: mqtt
-  name: 'Tomada da Televisão da Sala'
-  command_topic: 'cmnd/sonoff_tv_sala/power'
-  state_topic: 'stat/sonoff_tv_sala/POWER'
-  qos: 1
-  payload_on: 'ON'
-  payload_off: 'OFF'
-  retain: true
-
 - platform: broadlink
-  host: 192.168.1.6
+  host: 10.10.20.5
   mac: '24:df:a7:4f:d1:94'
   type: rm4c_mini
 
 - platform: broadlink
-  host: 192.168.1.7
+  host: 10.10.20.6
   mac: '24:df:a7:34:9b:3a'
   type: rm4c_mini

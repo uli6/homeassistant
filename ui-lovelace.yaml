@@ -61,16 +61,17 @@ views:
                 - sensor.living_room_sensor
               - type: custom:mini-graph-card
                 entities:
-                - sensor.bedroom_sensor_2
+                - sensor.bedroom_sensor
           - type: horizontal-stack
             cards:
               - type: custom:mini-graph-card
                 entities:
-                -  sensor.temperature_25
+                -  sensor.office
               - type: custom:mini-graph-card
                 entities:
-                - sensor.bathroom_sensor
+                - sensor.bathroom
           - type: custom:mini-graph-card
+            name: Humidade
             entities:
               - entity: sensor.avg_humidade
                 name: Interior
@@ -191,10 +192,10 @@ views:
             cards:
               - type: custom:mini-graph-card
                 entities:
-                - sensor.bedroom_sensor_2
+                - sensor.bedroom_sensor
               - type: custom:mini-graph-card
                 entities:
-                - sensor.bedroom_sensor
+                - sensor.bedroom_sensor_2
           - type: custom:mini-media-player
             entity: media_player.televisao_do_quarto
             icon: mdi:television
@@ -363,6 +364,9 @@ views:
     cards:
       - type: vertical-stack
         cards:
+          - type: light
+            entity: light.luz_da_cozinha
+            icon: mdi:ceiling-light
           - type: custom:mini-media-player
             entity: media_player.echo_flex_da_cozinha
             icon: mdi:amazon-alexa
