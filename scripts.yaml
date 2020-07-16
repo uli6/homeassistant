@@ -40,7 +40,7 @@ limparquarto:
       entity_id: vacuum.deebot
       params:
         cleanings: 1
-        rooms: 7
+        rooms: 9
     entity_id: vacuum.deebot
     service: vacuum.send_command
 limparhall:
@@ -50,8 +50,8 @@ limparhall:
       command: spot_area
       entity_id: vacuum.deebot
       params:
-        cleanings: 1
-        rooms: 3
+        cleanings: 2
+        rooms: 2
     entity_id: vacuum.deebot
     service: vacuum.send_command
 limparbathroom:
@@ -61,7 +61,7 @@ limparbathroom:
       command: spot_area
       entity_id: vacuum.deebot
       params:
-        cleanings: 1
+        cleanings: 2
         rooms: 4
     entity_id: vacuum.deebot
     service: vacuum.send_command
@@ -72,8 +72,8 @@ limparkitchen:
       command: spot_area
       entity_id: vacuum.deebot
       params:
-        cleanings: 1
-        rooms: 2
+        cleanings: 2
+        rooms: 3
     entity_id: vacuum.deebot
     service: vacuum.send_command
 limparoffice:
@@ -83,7 +83,7 @@ limparoffice:
       command: spot_area
       entity_id: vacuum.deebot
       params:
-        cleanings: 1
-        rooms: 1
+        cleanings: 2
+        rooms: 8
     entity_id: vacuum.deebot
     service: vacuum.send_command
