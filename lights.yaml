@@ -19,8 +19,8 @@
 
 - platform: mqtt
   name: 'Luz do Quarto'
-  command_topic: 'cmnd/sonoff_bedroom/power'
-  state_topic: 'stat/sonoff_bedroom/POWER'
+  command_topic: 'home/sonoff/cmnd/sonoff_bedroom/power'
+  state_topic: 'home/sonoff/stat/sonoff_bedroom/POWER'
   qos: 1
   payload_on: 'ON'
   payload_off: 'OFF'
@@ -28,8 +28,8 @@
 
 - platform: mqtt
   name: 'Luz do Escritório'
-  command_topic: 'cmnd/sonoff_guestroom/power'
-  state_topic: 'stat/sonoff_guestroom/POWER'
+  command_topic: 'home/sonoff/cmnd/sonoff_guestroom/power'
+  state_topic: 'home/sonoff/stat/sonoff_guestroom/POWER'
   qos: 1
   payload_on: 'ON'
   payload_off: 'OFF'
@@ -37,8 +37,8 @@
 
 - platform: mqtt
   name: 'Luz da Lavanderia'
-  command_topic: 'cmnd/laundry/power'
-  state_topic: 'stat/laundry/POWER'
+  command_topic: 'home/sonoff/cmnd/laundry/power'
+  state_topic: 'home/sonoff/stat/laundry/POWER'
   qos: 1
   payload_on: 'ON'
   payload_off: 'OFF'
@@ -46,8 +46,8 @@
 
 - platform: mqtt
   name: 'Luz da Cozinha'
-  command_topic: 'cmnd/sonoff_cozinha/power'
-  state_topic: 'stat/sonoff_cozinha/POWER'
+  command_topic: 'home/sonoff/cmnd/sonoff_cozinha/power'
+  state_topic: 'home/sonoff/stat/sonoff_cozinha/POWER'
   qos: 1
   payload_on: 'ON'
   payload_off: 'OFF'

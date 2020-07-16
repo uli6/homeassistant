@@ -1,7 +1,7 @@
 - platform: mqtt
   name: 'Sonoff 1'
-  command_topic: 'cmnd/sonoff_1/power'
-  state_topic: 'stat/sonoff_1/POWER'
+  command_topic: 'home/sonoff/cmnd/sonoff_1/power'
+  state_topic: 'home/sonoff/stat/sonoff_1/POWER'
   qos: 1
   payload_on: 'ON'
   payload_off: 'OFF'
@@ -9,8 +9,8 @@
 
 - platform: mqtt
   name: 'Microwave'
-  command_topic: 'cmnd/microwave/power'
-  state_topic: 'stat/microwave/POWER'
+  command_topic: 'home/sonoff/cmnd/microwave/power'
+  state_topic: 'home/sonoff/stat/microwave/POWER'
   qos: 1
   payload_on: 'ON'
   payload_off: 'OFF'
@@ -19,8 +19,8 @@
 
 - platform: mqtt
   name: 'Oven'
-  command_topic: 'cmnd/oven/power'
-  state_topic: 'stat/oven/POWER'
+  command_topic: 'home/sonoff/cmnd/oven/power'
+  state_topic: 'home/sonoff/stat/oven/POWER'
   qos: 1
   payload_on: 'ON'
   payload_off: 'OFF'
@@ -28,8 +28,8 @@
   
 - platform: mqtt
   name: 'Tomada do Aquecedor da Sala'
-  command_topic: 'cmnd/heater/power'
-  state_topic: 'stat/heater/POWER'
+  command_topic: 'home/sonoff/cmnd/heater/power'
+  state_topic: 'home/sonoff/stat/heater/POWER'
   qos: 1
   payload_on: 'ON'
   payload_off: 'OFF'
@@ -37,8 +37,8 @@
 
 - platform: mqtt
   name: 'Desumidificador'
-  command_topic: 'cmnd/sonoff_dehu/power'
-  state_topic: 'stat/sonoff_dehu/POWER'
+  command_topic: 'home/sonoff/cmnd/sonoff_dehu/power'
+  state_topic: 'home/sonoff/stat/sonoff_dehu/POWER'
   qos: 1
   payload_on: 'ON'
   payload_off: 'OFF'
@@ -46,8 +46,8 @@
 
 - platform: mqtt
   name: 'Aquecedor de Toalhas'
-  command_topic: 'cmnd/sonoff_bathroom/power'
-  state_topic: 'stat/sonoff_bathroom/POWER'
+  command_topic: 'home/sonoff/cmnd/sonoff_bathroom/power'
+  state_topic: 'home/sonoff/stat/sonoff_bathroom/POWER'
   qos: 1
   payload_on: 'ON'
   payload_off: 'OFF'
@@ -55,8 +55,8 @@
 
 - platform: mqtt
   name: 'Luz da impressora'
-  command_topic: 'cmnd/anet/power'
-  state_topic: 'stat/anet/POWER'
+  command_topic: 'home/sonoff/cmnd/anet/power'
+  state_topic: 'home/sonoff/stat/anet/POWER'
   qos: 1
   payload_on: 'ON'
   payload_off: 'OFF'
