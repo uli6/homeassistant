@@ -74,3 +74,11 @@ pi_hole:
 recorder:
   db_url: !secret mariadb 
 
+speedtestdotnet:
+  scan_interval:
+    # At least one of these must be specified:
+    days: 1
+    hours: 0
+    minutes: 0
+    seconds: 0
+    milliseconds: 0

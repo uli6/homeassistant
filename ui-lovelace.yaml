@@ -124,6 +124,15 @@ views:
           volume: true
           source: true
           power_state: false  
+      - type: horizontal-stack
+        cards:
+          - type: button
+            entity:  switch.smart_plug_11 
+            icon: mdi:ceiling-light
+          - type: button
+            entity:  switch.smart_plug_10
+            icon: mdi:ceiling-light
+
 
 ####################################################
 #                                                  #
