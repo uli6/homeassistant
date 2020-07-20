@@ -54,6 +54,11 @@ views:
         cards:
           - type: custom:weather-card
             entity: weather.dark_sky
+            number_of_forecasts: '5'
+            hourly_forecast: false
+            details: true
+            forecast: true
+            current: false
           - type: horizontal-stack
             cards:
               - type: custom:mini-graph-card

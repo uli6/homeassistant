@@ -42,6 +42,7 @@ input_text:
 weather:
   - platform: darksky
     api_key: !secret darksky_api
+    mode: daily
 
 media_extractor:
 
