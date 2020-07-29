@@ -70,16 +70,12 @@ vacuum:
 smartir:
 
 pi_hole:
-  - host: 192.168.1.14
+  - host: 10.10.0.3
 
 recorder:
   db_url: !secret mariadb 
 
-speedtestdotnet:
-  scan_interval:
-    # At least one of these must be specified:
-    days: 1
-    hours: 0
-    minutes: 0
-    seconds: 0
-    milliseconds: 0
+# speedtestdotnet:
+#   scan_interval:
+#     # At least one of these must be specified:
+#     days: 1
