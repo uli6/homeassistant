@@ -31,3 +31,6 @@ switch_3d_print:
 climate_switch:
   name: Aquecimento Central
   initial: off
+bmw_lock:
+    name: BMW Lock
+    initial: off

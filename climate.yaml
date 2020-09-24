@@ -13,10 +13,20 @@
 
 #Quarto
 - platform: smartir
-  name: Ar condicionado
+  name: Ar condicionado do quarto
   unique_id: bedroom_ac
   device_code: 1285
-  controller_data: 10.10.20.5
+  controller_data: remote.broadlink_quarto_remote
   temperature_sensor: sensor.bedroom_sensor
   humidity_sensor: sensor.bedroom_sensor_2
   power_sensor: binary_sensor.ac_power
+
+# - platform: midea_ac
+#   host: 10.10.20.119
+#   id: 19791209335791
+
+- platform: midea
+  app_key: 3742e9e5842d4ad59c2db887e12449f9
+  username: 'contact@ulisses.xyz'
+  password: !secret midea_password
+  use_fan_only_workaround: true

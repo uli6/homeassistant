@@ -1,8 +1,6 @@
 
 # #             Weather icon in the front page               #
-# ############################################################
-- platform: yr
-
+# ###########################################################
 
 - platform: template
   sensors:
@@ -10,6 +8,10 @@
         friendly_name: "Temperatura Interna"
         unit_of_measurement: '°C'
         value_template: "{{ ((float(states.sensor.living_room_sensor.state) + float(states.sensor.bedroom_sensor.state) + float(states.sensor.office.state) + float(states.sensor.bathroom.state)) / 4) | round(1) }}"
+    outside_temperature:
+        friendly_name: "Temperatura Externa"
+        unit_of_measurement: '°C'
+        value_template: '{{ states.weather.dark_sky.attributes.temperature }}'     
     avg_humidade:
         friendly_name: "Humidade"
         unit_of_measurement: '%'
@@ -40,8 +42,47 @@
     outside_humidity:
         value_template: '{{ states.weather.dark_sky.attributes.humidity }}'
         unit_of_measurement: '%'
-
-
+    today_min:
+        value_template: "{{ state_attr('weather.dark_sky','forecast')[0].templow | default('0') }}"
+        friendly_name: Today's maximal temperature
+    today_max:
+        value_template: "{{ state_attr('weather.dark_sky','forecast')[0].temperature | default('0') }}"
+        friendly_name: Today's minimal temperature
+    today_rain:
+        value_template: "{{ state_attr('weather.dark_sky','forecast')[0].precipitation | default('0') }}"
+        friendly_name: Today's rain forecast
+    today_icon:
+        value_template: >-
+          {% if state_attr("weather.dark_sky","forecast")[0].condition =='clear-night' %}
+            3
+          {% elif state_attr("weather.dark_sky","forecast")[0].condition =='cloudy' %}
+              5
+          {% elif state_attr("weather.dark_sky","forecast")[0].condition =='fog' %}
+              16
+          {% elif state_attr("weather.dark_sky","forecast")[0].condition =='hail' %}
+              6
+          {% elif state_attr("weather.dark_sky","forecast")[0].condition =='lightning' %}
+              13
+          {% elif state_attr("weather.dark_sky","forecast")[0].condition =='lightning-rainy' %}
+              17
+          {% elif state_attr("weather.dark_sky","forecast")[0].condition =='partlycloudy' %}
+              8
+          {% elif state_attr("weather.dark_sky","forecast")[0].condition =='pouring' %}
+              18
+          {% elif state_attr("weather.dark_sky","forecast")[0].condition =='rainy' %}
+              9
+          {% elif state_attr("weather.dark_sky","forecast")[0].condition =='snowy' %}
+              11
+          {% elif state_attr("weather.dark_sky","forecast")[0].condition =='snowy-rainy' %}
+              7
+          {% elif state_attr("weather.dark_sky","forecast")[0].condition =='windy' %}
+              14
+          {% elif state_attr("weather.dark_sky","forecast")[0].condition =='windy-variant' %}
+              14
+          {% else %}
+              12
+          {% endif %}
+        friendly_name: Today weather forecast
 
 ############################################################
 #           Get next Ferry Timne based on a Json           #
@@ -71,7 +112,31 @@
              {%- endif -%} 
           {%- endfor -%}
           {% endif %}
-
+          
+- platform: rest
+  name: Next Ferry 2
+  resource: http://10.10.1.2:8123/local/ferry.json
+  value_template: >-
+    {% set time = now().strftime("%H:%M") %}
+    {% set key = 1 %}
+    {% set control = 1 %}
+    {%- if now().strftime("%w") == '0' or now().strftime("%w") == '6' -%}
+    {%- for i in range(1, 82) -%}
+       {%- if value_json.Weekends[i] > time -%}
+       {%- elif value_json.Weekends[i+1] <= time -%}
+       {%- else -%} 
+         {{ value_json.Weekends[i+2] }}
+       {%- endif -%} 
+    {%- endfor -%}
+    {% else %} 
+    {%- for i in range(1, 82) -%} 
+       {%- if value_json.Weekdays[i] > time -%}
+       {%- elif value_json.Weekdays[i+1] <= time -%}
+       {%- else -%} 
+         {{ value_json.Weekdays[i+2] }}
+       {%- endif -%} 
+    {%- endfor -%}
+    {% endif %}
 # ############################################################
 # #                       MQTT Sensors                       #
 # ############################################################
@@ -211,3 +276,51 @@
   name: "Qualidade do Ar"
   state_topic: "home/gasleak/output"
   value_template: '{{ value_json.result }}'
+
+- platform: mqtt_room
+  device_id: "f0496b3cd544"
+  name: 'Chico Tag'
+  state_topic: 'room_presence'
+  timeout: 10
+  away_timeout: 300
+
+- platform: mqtt_room
+  device_id: "c7bcb79e9109"
+  name: 'Bento Tag'
+  state_topic: 'room_presence'
+  timeout: 10
+  away_timeout: 180
+
+- platform: mqtt_room
+  device_id: "f92c392bc3d4"
+  name: 'Ulisses Wallet Tag'
+  state_topic: 'room_presence'
+  timeout: 240
+  away_timeout: 30
+
+- platform: mqtt_room
+  device_id: "d54b7563ae2a"
+  name: 'Chave do Carro'
+  state_topic: 'room_presence'
+  timeout: 240
+  away_timeout: 30
+
+- platform: mqtt
+  name: "Ferry 1 HH"
+  state_topic: "home/sensor/ferry/hh1"
+  expire_after: 300
+
+- platform: mqtt
+  name: "Ferry 1 MM"
+  state_topic: "home/sensor/ferry/mm1"
+  expire_after: 300
+
+- platform: mqtt
+  name: "Ferry 2 HH"
+  state_topic: "home/sensor/ferry/hh2"
+  expire_after: 300
+
+- platform: mqtt
+  name: "Ferry 2 MM"
+  state_topic: "home/sensor/ferry/mm2"
+  expire_after: 300  

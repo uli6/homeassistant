@@ -14,9 +14,21 @@ resources:
     type: module
   - url: /local/community/surveillance-card.js?v=0
     type: module
-  - url: /local/community/custom-header.js?v=0.0.1
+  - url: /hacsfiles/custom-header.js
     type: module
-
+  - url: /hacsfiles/lovelace-auto-entities/auto-entities.js
+    type: module
+  - url: /hacsfiles/button-card/button-card.js
+    type: module
+  - url: /hacsfiles/light-entity-card/light-entity-card.js
+    type: module
+  - url: /hacsfiles/lovelace-card-mod/card-mod.js
+    type: module
+  - url: /hacsfiles/lovelace-more-info-card/more-info-card.js
+    type: module
+  - url: /hacsfiles/lovelace-state-switch/state-switch.js
+    type: module   
+    
 background: center / cover no-repeat url("/local/images/background.jpg") fixed
 
 custom_header:
@@ -45,11 +57,35 @@ views:
             - type: picture-entity
               entity: person.daniela
               image: /local/images/dani.jpg
+          - type: picture-entity
+            entity: person.bento
+            image: /local/images/bento.jpg
+            name: Bento
+          - type: picture-entity
+            entity: person.fracisco #sensor.chico_tag
+            image: /local/images/francisco.jpg
+            name: Francisco
           - type: entities
             entities:
               - entity: input_boolean.guests_boolean
-          - type: picture-entity
-            entity: camera.foscam_camera
+          - type: horizontal-stack
+            cards:
+              - type: vertical-stack
+                cards:
+                  - type: picture-glance
+                    title: BMW 116D
+                    entities:
+                      - binary_sensor.116d_check_control_messages
+                      - binary_sensor.116d_condition_based_services
+                    image: /local/images/bmw.jpg
+                  - type: button
+                    entity: lock.116d_lock
+                    show_name: false
+              - type: map
+                aspect_ratio: 2:1
+                default_zoom: 18
+                entities:
+                  - device_tracker.116d
       - type: vertical-stack
         cards:
           - type: custom:weather-card
@@ -137,6 +173,8 @@ views:
           - type: button
             entity:  switch.smart_plug_10
             icon: mdi:ceiling-light
+      - type: picture-entity
+        entity: camera.foscam_camera
 
 
 ####################################################
@@ -319,6 +357,8 @@ views:
               name: Fertilização
             - entity: sensor.schefflera_bateria
               type: battery
+          - type: thermostat
+            entity: climate.midea_19791209335791
 ####################################################
 #                                                  #
 #                View - Banheiro                   #
@@ -363,6 +403,8 @@ views:
               entity: binary_sensor.bathroom_motion_1
             - type: entity
               entity:  binary_sensor.motion_sensor
+        - type: custom:mini-media-player
+          entity:  media_player.echo_flex_do_banheiro
 
 ####################################################
 #                                                  #
@@ -382,7 +424,7 @@ views:
             entity: light.luz_da_cozinha
             icon: mdi:ceiling-light
           - type: custom:mini-media-player
-            entity: media_player.echo_flex_da_cozinha
+            entity: media_player.echo_dot_da_cozinha
             icon: mdi:amazon-alexa
             artwork: cover
             hide:

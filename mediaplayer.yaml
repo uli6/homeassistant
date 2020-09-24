@@ -11,5 +11,5 @@
   name: Televisão da Sala
   unique_id: living_room_tv
   device_code: 1000
-  controller_data: 10.10.20.6
+  controller_data: remote.broadlink_sala_remote
   power_sensor: binary_sensor.tv_power

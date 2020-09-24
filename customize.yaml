@@ -1,4 +1,21 @@
-person.ulisses:
-  entity_picture: /local/images/ulisses.jpg
 person.daniela:
-  entity_picture: /local/images.dani.jpg
+  entity_picture: "/local/images/dani.jpg"
+person.ulisses:
+  entity_picture: "/local/images/ulisses.jpg"
+person.francisco:
+  entity_picture: "/local/images/francisco.jpg"
+person.bento:
+  entity_picture: "/local/images/bento.jpg"
+sensor.chico_tag:
+  friendly_name: 'Francisco'
+sensor.bento_tag:
+  friendly_name: 'Bento'
+device_tracker.116d:
+  entity_picture: /local/images/bmw_logo.png
+  friendly_name: BMW 116D
+  icon: mdi:car
+sensor.ulisses_wallet_tag:
+  friendly_name: Carteira
+  icon: mdi:wallet
+sensor.chave_do_carro:
+    icon: mdi:key-variant

@@ -1,0 +1,48 @@
+luzes_sala:
+  name: Luzes da Sala
+  entities:
+    - switch.light_3
+    - switch.light_4
+    - light.floor_lamp
+luzes_quarto:
+  name: Luzes do Quarto
+  entities:
+    - light.luz_do_quarto
+    - light.table_lamp
+luzes_escritorio:
+  name: Luzes do Escritório
+  entities:
+    - light.luz_do_escritorio
+    - light.office_ambient_light
+    - switch.03200060600194a1d3ae
+
+luzes_hall:
+  name: Luzes do Hall
+  entities:
+    - switch.smart_plug_11
+    - switch.smart_plug_10
+
+motion_banheiro:
+  name: Movimento no Banheiro
+  entities:
+    - binary_sensor.bathroom_motion_1
+    -  binary_sensor.motion_sensor 
+
+luzes_banheiro:
+  name: Luzes do Banheiro
+  entities:
+    - light.bathroom_light_1
+    - light.bathroom_light_2
+
+bmw_info:
+  name: Informações Adicionais
+  entities:
+    - lock.116d_lock
+    - binary_sensor.116d_lights_parking
+    - binary_sensor.116d_check_control_messages
+    - binary_sensor.116d_condition_based_services
+    - binary_sensor.116d_lids
+    - binary_sensor.116d_windows
+    - sensor.116d_mileage
+    - sensor.116d_remaining_fuel
+    - sensor.116d_remaining_range_fuel

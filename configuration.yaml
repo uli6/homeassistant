@@ -1,20 +1,33 @@
 
-# Configure a default setup of Home Assistant (frontend, api, etc)
-default_config:
+# # Configure a default setup of Home Assistant (frontend, api, etc)
+# default_config:
 
-frontend:
-  themes: !include_dir_named themes
-
-lovelace:
-  mode: yaml
-
+#Copy from here#
+#Start of dwains-theme necessary code#
 homeassistant:
-  customize:
-    person.daniela:
-      entity_picture: "/local/images/dani.jpg"
-    person.ulisses:
-      entity_picture: "/local/images/ulisses.jpg"
+  # If you want to customize entries with friendly_name or custom icon.
+  # Read more here: https://www.home-assistant.io/docs/configuration/customizing-devices/
+  # Uncomment line below and create file customize.yaml or edit it
+  customize: !include customize.yaml
 
+  # Below entry links to the packages folder required for Dwains Theme
+  packages: !include_dir_named packages/ # Comment this whole line if you want to disable Dwains Theme
+
+  # If you had any important strings before in homeassistant: place them back here below
+  # 
+
+#End of dwains-theme necessary code#
+#Copy till here#
+
+  auth_providers:
+    - type: homeassistant
+    - type: legacy_api_password
+      api_password: !secret http_password
+# lovelace:
+#   mode: yaml
+    
+cloud:
+  
 # Text to speech
 tts:
   - platform: google_translate
@@ -72,10 +85,11 @@ smartir:
 pi_hole:
   - host: 10.10.0.3
 
-recorder:
-  db_url: !secret mariadb 
+# recorder:
+#   db_url: !secret mariadb 
 
-# speedtestdotnet:
-#   scan_interval:
-#     # At least one of these must be specified:
-#     days: 1
+bmw_connected_drive:
+  name: 
+    username: !secret USERNAME_BMW
+    password: !secret PASSWORD_BMW
+    region: rest_of_world
